@@ -14,6 +14,8 @@ const chatId =
         .querySelector("script[data-chat-id]")
         ?.getAttribute("data-chat-id");
 
+console.log('chatId', chatId);
+
 ReactDOM.createRoot(div).render(
   <React.StrictMode>
     <App chatId={chatId} />
