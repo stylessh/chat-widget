@@ -7,8 +7,15 @@ import "./index.css";
 const div = document.createElement("div");
 document.body.appendChild(div);
 
+const chatId =
+  process.env.NODE_ENV === "development"
+    ? "TEST-ID"
+    : document
+        .querySelector("script[data-chat-id]")
+        ?.getAttribute("data-chat-id");
+
 ReactDOM.createRoot(div).render(
   <React.StrictMode>
-    <App />
+    <App chatId={chatId} />
   </React.StrictMode>
 );

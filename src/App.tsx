@@ -6,7 +6,15 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-function App() {
+interface AppProps {
+  chatId: string | null | undefined;
+}
+
+function App({ chatId }: AppProps) {
+  if (!chatId) {
+    return null;
+  }
+
   return (
     <div className="absolute bottom-5 right-5">
       <Popover>
@@ -30,7 +38,7 @@ function App() {
           <div></div>
 
           <div className="p-1 text-center text-sm italic text-gray-500">
-            <p>Powered by ChatWidget</p>
+            <p>Powered by ChatWidget ({chatId})</p>
           </div>
         </PopoverContent>
       </Popover>
